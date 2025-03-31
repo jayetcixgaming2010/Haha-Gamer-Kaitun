@@ -1,0 +1,1022 @@
+-- discord.gg/e6yjqPzWqT
+
+
+shared.LoaderTitle = "Đăng Ký Kênh Music Premium";
+shared.LoaderKeyFrames = {
+    [1] = {
+        1,
+        10
+    },
+    [2] = {
+        2,
+        30
+    },
+    [3] = {
+        3,
+        60
+    },
+    [4] = {
+        2,
+        100
+    }
+};
+local v2 = {
+    LoaderData = {
+        Name = shared.LoaderTitle or "A Loader",
+        Colors = shared.LoaderColors or {
+            Main = Color3.fromRGB(0, 0, 0),
+            Topic = Color3.fromRGB(200, 200, 200),
+            Title = Color3.fromRGB(255, 255, 255),
+            LoaderBackground = Color3.fromRGB(40, 40, 40),
+            LoaderSplash = Color3.fromRGB(3, 252, 3)
+        }
+    },
+    Keyframes = shared.LoaderKeyFrames or {
+        [1] = {
+            1,
+            10
+        },
+        [2] = {
+            2,
+            30
+        },
+        [3] = {
+            3,
+            60
+        },
+        [4] = {
+            2,
+            100
+        }
+    }
+};
+local v3 = {
+    [1] = "",
+    [2] = "",
+    [3] = "",
+    [4] = ""
+};
+function TweenObject(v178, v179, v180)
+    game.TweenService:Create(v178, TweenInfo.new(v179, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), v180):Play();
+end
+function CreateObject(v181, v182)
+    local v183 = Instance.new(v181);
+    local v184;
+    for v416, v417 in pairs(v182) do
+        if (v416 ~= "Parent") then
+            v183[v416] = v417;
+        else
+            v184 = v417;
+        end
+    end
+    v183.Parent = v184;
+    return v183;
+end
+local function v4(v186, v187)
+    local v188 = Instance.new("UICorner");
+    v188.CornerRadius = UDim.new(0, v186);
+    v188.Parent = v187;
+end
+local v5 = CreateObject("ScreenGui", {
+    Name = "Core",
+    Parent = game.CoreGui
+});
+local v6 = CreateObject("Frame", {
+    Name = "Main",
+    Parent = v5,
+    BackgroundColor3 = v2.LoaderData.Colors.Main,
+    BorderSizePixel = 0,
+    ClipsDescendants = true,
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    Size = UDim2.new(0, 0, 0, 0)
+});
+v4(12, v6);
+local v7 = CreateObject("ImageLabel", {
+    Name = "UserImage",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Image = "rbxassetid://135920566704171",
+    Position = UDim2.new(0, 15, 0, 10),
+    Size = UDim2.new(0, 50, 0, 50)
+});
+v4(25, v7);
+local v8 = CreateObject("TextLabel", {
+    Name = "UserName",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Text = "Youtube: Music Premium",
+    Position = UDim2.new(0, 75, 0, 10),
+    Size = UDim2.new(0, 200, 0, 50),
+    Font = Enum.Font.GothamBold,
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v9 = CreateObject("TextLabel", {
+    Name = "Top",
+    TextTransparency = 1,
+    Parent = v6,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 70),
+    Size = UDim2.new(0, 301, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "Loader",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 10,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v10 = CreateObject("TextLabel", {
+    Name = "Title",
+    Parent = v6,
+    TextTransparency = 1,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 90),
+    Size = UDim2.new(0, 301, 0, 46),
+    Font = Enum.Font.Gotham,
+    RichText = true,
+    Text = "<b>" .. v2.LoaderData.Name .. "</b>",
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v11 = CreateObject("Frame", {
+    Name = "BG",
+    Parent = v6,
+    AnchorPoint = Vector2.new(0.5, 0),
+    BackgroundTransparency = 1,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderBackground,
+    BorderSizePixel = 0,
+    Position = UDim2.new(0.5, 0, 0, 70),
+    Size = UDim2.new(0.8500000238418579, 0, 0, 24)
+});
+v4(8, v11);
+local v12 = CreateObject("Frame", {
+    Name = "Progress",
+    Parent = v11,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderSplash,
+    BackgroundTransparency = 1,
+    BorderSizePixel = 0,
+    Size = UDim2.new(0, 0, 0, 24)
+});
+v4(8, v12);
+local v13 = CreateObject("TextLabel", {
+    Name = "StepLabel",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0.5, 0, 1, - 25),
+    Size = UDim2.new(1, - 20, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Center,
+    AnchorPoint = Vector2.new(0.5, 0.5)
+});
+function UpdateStepText(v191)
+    v13.Text = v3[v191] or "" ;
+end
+function UpdatePercentage(v193, v194)
+    TweenObject(v12, 0.5, {
+        Size = UDim2.new(v193 / 100, 0, 0, 24)
+    });
+    UpdateStepText(v194);
+end
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 346, 0, 121)
+});
+wait();
+TweenObject(v9, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 0
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 0
+});
+for v195, v196 in pairs(v2.Keyframes) do
+    wait(v196[1]);
+    UpdatePercentage(v196[2], v195);
+end
+UpdatePercentage(100, 4);
+TweenObject(v9, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 1
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 1
+});
+wait(0.5);
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 0, 0, 0)
+});
+wait(0.25);
+v5:Destroy();
+-- spawn(function()
+--     while wait() do
+--         function print()
+--         end
+--         function warn()
+--         end
+--         function error()
+--         end
+--         debug.traceback = function()
+--             return "Traceback blocked";
+--         end;
+--         debug.info = function()
+--             return "Info blocked";
+--         end;
+--         local v420 = getrawmetatable(game);
+--         if (v420 and not v420.__metatable) then
+--             setreadonly(v420, false);
+--             local v658 = v420.__index;
+--             local v659 = v420.__newindex;
+--             v420.__index = function(v759, v760)
+--                 if ((v760 == "debug") or (v760 == "getrawmetatable")) then
+--                     error("Anti Skid: Tampering detected!");
+--                 end
+--                 return v658(v759, v760);
+--             end;
+--             v420.__newindex = function(v761, v762, v763)
+--                 if ((v762 == "debug") or (v762 == "getrawmetatable")) then
+--                     error("Anti Skid: Tampering detected!");
+--                 end
+--                 return v659(v761, v762, v763);
+--             end;
+--             setreadonly(v420, true);
+--         end
+--         local function v421()
+--             local v568 = {
+--                 "_G",
+--                 "debug",
+--                 "getgenv",
+--                 "getrawmetatable",
+--                 "setfenv",
+--                 "loadstring",
+--                 "hookfunction"
+--             };
+--             for v662, v663 in ipairs(v568) do
+--                 local v664, v665 = pcall(function()
+--                     return _G[v663];
+--                 end);
+--                 if (v664 and v665) then
+--                     error("Anti Skid: Environment tampering detected!");
+--                 end
+--             end
+--         end
+--         local function v422()
+--             local v569 = {
+--                 getrawmetatable,
+--                 setreadonly,
+--                 getgenv,
+--                 debug.getinfo,
+--                 debug.getregistry
+--             };
+--             for v666, v667 in ipairs(v569) do
+--                 if v667 then
+--                     error("Anti Skid: Hook tampering detected!");
+--                 end
+--             end
+--         end
+--         local v423 = game:FindService("HttpService");
+--         if v423 then
+--             v423.RequestAsync = function()
+--                 error("HTTP Requests Blocked");
+--             end;
+--             v423.GetAsync = function()
+--                 error("HTTP Get Blocked");
+--             end;
+--             v423.PostAsync = function()
+--                 error("HTTP Post Blocked");
+--             end;
+--         end
+--         function collectgarbage()
+--             error("GC Blocked");
+--         end
+--         os.time = function()
+--             error("OS Time Blocked");
+--         end;
+--         pcall(v421);
+--         pcall(v422);
+--     end
+-- end);
+local v14 = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
+local v15 = v14:CreateWindow({
+    Title = "Haha Gamer Hub",
+    SubTitle = "Blox Fruit",
+    TabWidth = 160,
+    Theme = "Dark",
+    Acrylic = false,
+    Size = UDim2.fromOffset(500, 320),
+    MinimizeKey = Enum.KeyCode.End
+});
+local v16 = {
+    Home = v15:AddTab({
+        Title = "Thông Tin"
+    }),
+    Setting = v15:AddTab({
+        Title = "Cài Đặt"
+    }),
+    Status = v15:AddTab({
+        Title = "Máy Chủ"
+    }),
+        Player = v15:AddTab({
+        Title = "Người Chơi"
+    }),
+    Teleport = v15:AddTab({
+        Title = "Dịch Chuyển"
+    }),
+    Misc = v15:AddTab({
+        Title = "Khác"
+    })
+};
+local v17 = v14.Options;
+local v18 = game.PlaceId;
+if (v18 == 2753915549) then
+    Sea1 = true;
+elseif (v18 == 4442272183) then
+    Sea2 = true;
+elseif (v18 == 7449423635) then
+    Sea3 = true;
+else
+    game:Shutdown();
+end
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame);
+    wait();
+    game:GetService("VirtualUser"):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame);
+end);
+Sea1 = false;
+Sea2 = false;
+Sea3 = false;
+local v19 = game.PlaceId;
+if (v19 == 2753915549) then
+    Sea1 = true;
+elseif (v19 == 4442272183) then
+    Sea2 = true;
+elseif (v19 == 7449423635) then
+    Sea3 = true;
+end
+function AutoHaki()
+    if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso");
+    end
+end
+local v22 = Instance.new("ScreenGui");
+local v23 = Instance.new("ImageButton");
+local v24 = Instance.new("UICorner");
+local v25 = Instance.new("ParticleEmitter");
+local v26 = game:GetService("TweenService");
+v22.Parent = game.CoreGui;
+v22.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
+v23.Parent = v22;
+v23.BackgroundColor3 = Color3.fromRGB(0, 0, 0);
+v23.BorderSizePixel = 0;
+v23.Position = UDim2.new(0.120833337 - 0.1, 0, 0.0952890813 + 0.01, 0);
+v23.Size = UDim2.new(0, 50, 0, 50);
+v23.Draggable = true;
+v23.Image = "http://www.roblox.com/asset/?id=135920566704171";
+v24.Parent = v23;
+v24.CornerRadius = UDim.new(0, 12);
+v25.Parent = v23;
+v25.LightEmission = 1;
+v25.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0.1),
+    NumberSequenceKeypoint.new(1, 0)
+});
+v25.Lifetime = NumberRange.new(0.5, 1);
+v25.Rate = 0;
+v25.Speed = NumberRange.new(5, 10);
+v25.Color = ColorSequence.new(Color3.fromRGB(255, 85, 255), Color3.fromRGB(85, 255, 255));
+local v47 = v26:Create(v23, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+    Rotation = 360
+});
+v23.MouseButton1Down:Connect(function()
+    v25.Rate = 100;
+    task.delay(1, function()
+        v25.Rate = 0;
+    end);
+    v47:Play();
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game);
+    v47.Completed:Connect(function()
+        v23.Rotation = 0;
+    end);
+    local v235 = v26:Create(v23, TweenInfo.new(0.2, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out), {
+        Size = UDim2.new(0, 60, 0, 60)
+    });
+    v235:Play();
+    v235.Completed:Connect(function()
+        local v483 = v26:Create(v23, TweenInfo.new(0.2, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out), {
+            Size = UDim2.new(0, 50, 0, 50)
+        });
+        v483:Play();
+    end);
+end);
+if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Death") then
+    game:GetService("ReplicatedStorage").Effect.Container.Death:Destroy();
+end
+if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn") then
+    game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy();
+end
+v16.Home:AddButton({
+    Title = "Discord",
+    Description = "Join The Discord",
+    Callback = function()
+        setclipboard("https://discord.gg/e6yjqPzWqT");
+    end
+});
+local v85 = v16.Setting:AddToggle("ToggleAutoT", {
+    Title = "Bật Tộc V3",
+    Description = "",
+    Default = false
+});
+v85:OnChanged(function(v273)
+    _G.AutoT = v273;
+end);
+v17.ToggleAutoT:SetValue(false);
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.AutoT then
+                game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("ActivateAbility");
+            end
+        end);
+    end
+end);
+local v86 = v16.Setting:AddToggle("ToggleAutoY", {
+    Title = "Bật Tộc V4",
+    Description = "",
+    Default = false
+});
+v86:OnChanged(function(v274)
+    _G.AutoY = v274;
+end);
+v17.ToggleAutoY:SetValue(false);
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.AutoY then
+                game:GetService("VirtualInputManager"):SendKeyEvent(true, "Y", false, game);
+                wait();
+                game:GetService("VirtualInputManager"):SendKeyEvent(false, "Y", false, game);
+            end
+        end);
+    end
+end);
+local v87 = v16.Setting:AddToggle("ToggleAutoKen", {
+    Title = "Bật Haki Quan Sât",
+    Description = "",
+    Default = false
+});
+v87:OnChanged(function(v275)
+    _G.AutoKen = v275;
+    if v275 then
+        game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken", true);
+    else
+        game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken", false);
+    end
+end);
+v17.ToggleAutoKen:SetValue(false);
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.AutoKen then
+                game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken", true);
+            end
+        end);
+    end
+end);
+local v88 = v16.Setting:AddToggle("ToggleSaveSpawn", {
+    Title = "Lưu Điểm Hồi Sinh",
+    Description = "",
+    Default = false
+});
+v88:OnChanged(function(v276)
+    _G.SaveSpawn = v276;
+    if v276 then
+        local v648 = {
+            [1] = "SetSpawnPoint"
+        };
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(v648));
+    end
+end);
+v17.ToggleSaveSpawn:SetValue(false);
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.SaveSpawn then
+                local v797 = {
+                    [1] = "SetSpawnPoint"
+                };
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(v797));
+            end
+        end);
+    end
+end);
+local v89 = require(game.ReplicatedStorage.Util.CameraShaker);
+v89:Stop();
+local v90 = v16.Setting:AddToggle("ToggleBringMob", {
+    Title = "Gom Quái",
+    Description = "",
+    Default = true
+});
+v90:OnChanged(function(v277)
+    _G.BringMob = v277;
+end);
+v17.ToggleBringMob:SetValue(true);
+spawn(function()
+    while wait() do
+        pcall(function()
+            for v733, v734 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                if (_G.BringMob and bringmob) then
+                    if ((v734.Name == MonFarm) and v734:FindFirstChild("Humanoid") and (v734.Humanoid.Health > 0)) then
+                        if (v734.Name == "Factory Staff") then
+                            if ((v734.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 1000000000) then
+                                v734.Head.CanCollide = false;
+                                v734.HumanoidRootPart.CanCollide = false;
+                                v734.HumanoidRootPart.Size = Vector3.new(60, 60, 60);
+                                v734.HumanoidRootPart.CFrame = FarmPos;
+                                if v734.Humanoid:FindFirstChild("Animator") then
+                                    v734.Humanoid.Animator:Destroy();
+                                end
+                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge);
+                            end
+                        elseif (v734.Name == MonFarm) then
+                            if ((v734.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 1000000000) then
+                                v734.HumanoidRootPart.CFrame = FarmPos;
+                                v734.HumanoidRootPart.Size = Vector3.new(60, 60, 60);
+                                v734.HumanoidRootPart.Transparency = 1;
+                                v734.Humanoid.JumpPower = 0;
+                                v734.Humanoid.WalkSpeed = 0;
+                                if v734.Humanoid:FindFirstChild("Animator") then
+                                    v734.Humanoid.Animator:Destroy();
+                                end
+                                v734.HumanoidRootPart.CanCollide = false;
+                                v734.Head.CanCollide = false;
+                                v734.Humanoid:ChangeState(11);
+                                v734.Humanoid:ChangeState(14);
+                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge);
+                            end
+                        end
+                    end
+                end
+            end
+        end);
+    end
+end);
+local v91 = v16.Setting:AddToggle("ToggleRemoveNotify", {
+    Title = "Xóa Thông Báo",
+    Description = "",
+    Default = false
+});
+v91:OnChanged(function(v278)
+    RemoveNotify = v278;
+end);
+v17.ToggleRemoveNotify:SetValue(false);
+spawn(function()
+    while wait() do
+        if RemoveNotify then
+            game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false;
+        else
+            game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = true;
+        end
+    end
+end);
+local v92 = v16.Setting:AddToggle("ToggleWhite", {
+    Title = "Màn Hình Trắng",
+    Description = "",
+    Default = false
+});
+v92:OnChanged(function(v279)
+    _G.WhiteScreen = v279;
+    if (_G.WhiteScreen == true) then
+        game:GetService("RunService"):Set3dRenderingEnabled(false);
+    elseif (_G.WhiteScreen == false) then
+        game:GetService("RunService"):Set3dRenderingEnabled(true);
+    end
+end);
+v17.ToggleF:SetValue(true);
+local v99 = v16.Status:AddParagraph({
+    Title = "Thông Tin",
+    Content = "━━━━━━━━━━━━━━━━━━━━━\n" .. "Tên : " .. game.Players.LocalPlayer.DisplayName .. " (@" .. game.Players.LocalPlayer.Name .. ")\n" .. "Cấp : " .. game:GetService("Players").LocalPlayer.Data.Level.Value .. "\n" .. "Tiền : " .. game:GetService("Players").LocalPlayer.Data.Beli.Value .. "\n" .. "Điểm F : " .. game:GetService("Players").LocalPlayer.Data.Fragments.Value .. "\n" .. "Tiền Truy Nã : " .. game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value .. "\n" .. "Máu: " .. game.Players.LocalPlayer.Character.Humanoid.Health .. "/" .. game.Players.LocalPlayer.Character.Humanoid.MaxHealth .. "\n" .. "Năng Lượng : " .. game.Players.LocalPlayer.Character.Energy.Value .. "/" .. game.Players.LocalPlayer.Character.Energy.MaxValue .. "\n" .. "Tộc : " .. game:GetService("Players").LocalPlayer.Data.Race.Value .. "\n" .. "Trái : " .. game:GetService("Players").LocalPlayer.Data.DevilFruit.Value .. "\n" .. "━━━━━━━━━━━━━━━━━━━━━"
+});
+local v100 = v16.Status:AddParagraph({
+    Title = "Thời Gian",
+    Content = ""
+});
+local function v101()
+    local v285 = os.date("*t");
+    local v286 = v285.hour % 24 ;
+    local v287 = ((v286 < 12) and "AM") or "PM" ;
+    local v288 = string.format("%02i:%02i:%02i %s", ((v286 - 1) % 12) + 1, v285.min, v285.sec, v287);
+    local v289 = string.format("%02d/%02d/%04d", v285.day, v285.month, v285.year);
+    local v290 = game:GetService("LocalizationService");
+    local v291 = game:GetService("Players");
+    local v292 = v291.LocalPlayer;
+    local v293 = v292.Name;
+    local v294 = "Unknown";
+    local v295, v296 = pcall(function()
+        return v290:GetCountryRegionForPlayerAsync(v292);
+    end);
+    if v295 then
+        v294 = v296;
+    end
+    v100:SetDesc(v289 .. "-" .. v288 .. " [ " .. v294 .. " ]");
+end
+spawn(function()
+    while true do
+        v101();
+        game:GetService("RunService").RenderStepped:Wait();
+    end
+end);
+local v102 = v16.Status:AddParagraph({
+    Title = "Thời Gian Máy Chủ",
+    Content = ""
+});
+local function v103()
+    local v297 = math.floor(workspace.DistributedGameTime + 0.5);
+    local v298 = math.floor(v297 / (60 ^ 2)) % 24 ;
+    local v299 = math.floor(v297 / 60) % 60 ;
+    local v300 = v297 % 60 ;
+    v102:SetDesc(string.format("%02d Tiếng-%02d Phút-%02d Giây", v298, v299, v300));
+end
+spawn(function()
+    while task.wait() do
+        pcall(v103);
+    end
+end);
+local v104 = v16.Status:AddParagraph({
+    Title = "Đảo Leviathan",
+    Content = ""
+});
+spawn(function()
+    pcall(function()
+        while wait() do
+            if game:GetService("Workspace").Map:FindFirstChild("FrozenDimension") then
+                v104:SetDesc("✅");
+            else
+                v104:SetDesc("❌");
+            end
+        end
+    end);
+end);
+local v105 = v16.Status:AddInput("Input", {
+    Title = "Job ID",
+    Default = "",
+    Placeholder = "Dán Job ID Vào Đây",
+    Numeric = false,
+    Finished = false,
+    Callback = function(v301)
+        _G.Job = v301;
+    end
+});
+v16.Status:AddButton({
+    Title = "Bắt Đầu Tham Gia Job ID",
+    Description = "",
+    Callback = function()
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer);
+    end
+});
+v16.Status:AddButton({
+    Title = "Sao Chép Job ID",
+    Description = "",
+    Callback = function()
+        setclipboard(tostring(game.JobId));
+    end
+});
+local v106 = v16.Status:AddToggle("MyToggle", {
+    Title = "Spam Tham Gia Job ID",
+    Default = false
+});
+v106:OnChanged(function(v302)
+    _G.Join = v302;
+end);
+spawn(function()
+    while wait() do
+        if _G.Join then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer);
+        end
+    end
+end);
+local v112 = {};
+for v308, v309 in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(v112, v309.Name);
+end
+local v115 = v16.Player:AddToggle("ToggleNoClip", {
+    Title = "Đi Xuyên Tường",
+    Description = "",
+    Default = true
+});
+v115:OnChanged(function(v312)
+    _G.LOf = v312;
+end);
+v17.ToggleNoClip:SetValue(true);
+spawn(function()
+    pcall(function()
+        game:GetService("RunService").Stepped:Connect(function()
+            if _G.LOf then
+                for v868, v869 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v869:IsA("BasePart") then
+                        v869.CanCollide = false;
+                    end
+                end
+            end
+        end);
+    end);
+end);
+local v116 = v16.Player:AddToggle("ToggleWalkonWater", {
+    Title = "Đi Trên Nước",
+    Description = "",
+    Default = true
+});
+v116:OnChanged(function(v313)
+    _G.WalkonWater = v313;
+end);
+v17.ToggleWalkonWater:SetValue(true);
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if _G.WalkonWater then
+                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000, 112, 1000);
+            else
+                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000, 80, 1000);
+            end
+        end);
+    end
+end);
+v16.Teleport:AddButton({
+    Title = "Biến 1",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain");
+    end
+});
+v16.Teleport:AddButton({
+    Title = "Biến 2",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa");
+    end
+});
+v16.Teleport:AddButton({
+    Title = "Biển 3",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou");
+    end
+});
+v16.Misc:AddButton({
+    Title = "Tham Gia Máy Chủ Lại",
+    Description = "",
+    Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer);
+    end
+});
+v16.Misc:AddButton({
+    Title = "Đổi Máy Chủ",
+    Description = "",
+    Callback = function()
+        Hop();
+    end
+});
+function Hop()
+    local v372 = game.PlaceId;
+    local v373 = {};
+    local v374 = "";
+    local v375 = os.date("!*t").hour;
+    local v376 = false;
+    function TPReturner()
+        local v556;
+        if (v374 == "") then
+            v556 = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. v372 .. "/servers/Public?sortOrder=Asc&limit=100"));
+        else
+            v556 = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. v372 .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" .. v374));
+        end
+        local v557 = "";
+        if (v556.nextPageCursor and (v556.nextPageCursor ~= "null") and (v556.nextPageCursor ~= nil)) then
+            v374 = v556.nextPageCursor;
+        end
+        local v558 = 0;
+        for v651, v652 in pairs(v556.data) do
+            local v653 = true;
+            v557 = tostring(v652.id);
+            if (tonumber(v652.maxPlayers) > tonumber(v652.playing)) then
+                for v872, v873 in pairs(v373) do
+                    if (v558 ~= 0) then
+                        if (v557 == tostring(v873)) then
+                            v653 = false;
+                        end
+                    elseif (tonumber(v375) ~= tonumber(v873)) then
+                        local v1472 = pcall(function()
+                            v373 = {};
+                            table.insert(v373, v375);
+                        end);
+                    end
+                    v558 = v558 + 1 ;
+                end
+                if (v653 == true) then
+                    table.insert(v373, v557);
+                    wait();
+                    pcall(function()
+                        wait();
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(v372, v557, game.Players.LocalPlayer);
+                    end);
+                    wait();
+                end
+            end
+        end
+    end
+    function v118()
+        while wait() do
+            pcall(function()
+                TPReturner();
+                if (v374 ~= "") then
+                    TPReturner();
+                end
+            end);
+        end
+    end
+    v118();
+end
+local v56 = v16.Misc:AddSection("Đội");
+v16.Misc:AddButton({
+    Title = "Hải Tặc",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Pirates");
+    end
+});
+v16.Misc:AddButton({
+    Title = "Hải Quân",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Marines");
+    end
+});
+local v56 = v16.Misc:AddSection("Kinh Nghiệm");
+local v150 = {
+    "KITT_RESET",
+    "Sub2UncleKizaru",
+    "SUB2GAMERROBOT_RESET1",
+    "Sub2Fer999",
+    "Enyu_is_Pro",
+    "JCWK",
+    "StarcodeHEO",
+    "MagicBus",
+    "KittGaming",
+    "Sub2CaptainMaui",
+    "Sub2OfficalNoobie",
+    "TheGreatAce",
+    "Sub2NoobMaster123",
+    "Sub2Daigrock",
+    "Axiore",
+    "StrawHatMaine",
+    "TantaiGaming",
+    "Bluxxy",
+    "SUB2GAMERROBOT_EXP1",
+    "Chandler",
+    "NOMOREHACK",
+    "BANEXPLOIT",
+    "WildDares",
+    "BossBuild",
+    "GetPranked",
+    "EARN_FRUITS",
+    "FIGHT4FRUIT",
+    "NOEXPLOITER",
+    "NOOB2ADMIN",
+    "CODESLIDE",
+    "ADMINHACKED",
+    "ADMINDARES",
+    "fruitconcepts",
+    "krazydares",
+    "TRIPLEABUSE",
+    "SEATROLLING",
+    "24NOADMIN",
+    "REWARDFUN",
+    "NEWTROLL",
+    "fudd10_v2",
+    "Fudd10",
+    "Bignews",
+    "SECRET_ADMIN"
+};
+v16.Misc:AddButton({
+    Title = "Nhập Hết",
+    Description = "",
+    Callback = function()
+        for v559, v560 in ipairs(v150) do
+            RedeemCode(v560);
+        end
+    end
+});
+function RedeemCode(v377)
+    game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(v377);
+end
+local v56 = v16.Misc:AddSection("Danh Hiệu");
+v16.Misc:AddButton({
+    Title = "Danh Hiệu",
+    Description = "",
+    Callback = function()
+        local v378 = {
+            [1] = "getTitles"
+        };
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(v378));
+        game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true;
+    end
+});
+local v56 = v16.Misc:AddSection("Thức Tỉnh");
+v16.Misc:AddButton({
+    Title = "Thức Tỉnh",
+    Description = "",
+    Callback = function()
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true;
+    end
+});
+local v56 = v16.Misc:AddSection("Khác");
+local v151 = v16.Misc:AddToggle("ToggleRejoin", {
+    Title = "Tham Gia Máy Chủ Lại",
+    Description = "",
+    Default = true
+});
+v151:OnChanged(function(v381)
+    _G.AutoRejoin = v381;
+end);
+v17.ToggleRejoin:SetValue(true);
+spawn(function()
+    while wait() do
+        if _G.AutoRejoin then
+            getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(v808)
+                if ((v808.Name == "ErrorPrompt") and v808:FindFirstChild("MessageArea") and v808.MessageArea:FindFirstChild("ErrorFrame")) then
+                    game:GetService("TeleportService"):Teleport(game.PlaceId);
+                end
+            end);
+        end
+    end
+end);
+local v56 = v16.Misc:AddSection("Sương");
+local function v152()
+    local v382 = game:GetService("Lighting");
+    if v382:FindFirstChild("BaseAtmosphere") then
+        v382.BaseAtmosphere:Destroy();
+    end
+    if v382:FindFirstChild("SeaTerrorCC") then
+        v382.SeaTerrorCC:Destroy();
+    end
+    if v382:FindFirstChild("LightingLayers") then
+        if v382.LightingLayers:FindFirstChild("Atmosphere") then
+            v382.LightingLayers.Atmosphere:Destroy();
+        end
+        wait();
+        if v382.LightingLayers:FindFirstChild("DarkFog") then
+            v382.LightingLayers.DarkFog:Destroy();
+        end
+    end
+    v382.FogEnd = 100000;
+end
+v16.Misc:AddButton({
+    Title = "Xóa Sương Mù",
+    Description = "",
+    Callback = function()
+        v152();
+    end
+});
+local v153 = v16.Misc:AddToggle("ToggleAntiBand", {
+    Title = "Chống Band",
+    Description = "",
+    Default = true
+});
+v153:OnChanged(function(v384)
+    _G.AntiBand = v384;
+end);
+local v154 = {
+    17884881,
+    120173604,
+    912348
+};
+spawn(function()
+    while wait() do
+        if _G.AntiBand then
+            for v809, v810 in pairs(game:GetService("Players"):GetPlayers()) do
+                if table.find(v154, v810.UserId) then
+                    Hop();
+                end
+            end
+        end
+    end
+end);
+v14:Notify({
+    Title = "Haha Gamer",
+    Content = "Tải Xong",
+    Duration = 10
+});
+auto-execute.yml.loadstring(game:HttpGet("https://raw.githubusercontent.com/jayetcixgaming2010/Royx-Kaitun/refs/heads/main/Royx%20Kaitun"))()
