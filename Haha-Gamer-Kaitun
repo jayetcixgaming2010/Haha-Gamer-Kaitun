@@ -1019,4 +1019,3 @@ v14:Notify({
     Content = "Tải Xong",
     Duration = 10
 });
-auto-execute.yml.loadstring(game:HttpGet("https://raw.githubusercontent.com/jayetcixgaming2010/Royx-Kaitun/refs/heads/main/Royx%20Kaitun"))()
