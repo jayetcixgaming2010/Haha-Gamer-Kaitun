@@ -497,84 +497,6 @@ spawn(function()
         end);
     end
 end);
-local v88 = v16.Setting:AddToggle("ToggleSaveSpawn", {
-    Title = "Lưu Điểm Hồi Sinh",
-    Description = "",
-    Default = false
-});
-v88:OnChanged(function(v276)
-    _G.SaveSpawn = v276;
-    if v276 then
-        local v648 = {
-            [1] = "SetSpawnPoint"
-        };
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(v648));
-    end
-end);
-v17.ToggleSaveSpawn:SetValue(false);
-spawn(function()
-    while wait() do
-        pcall(function()
-            if _G.SaveSpawn then
-                local v797 = {
-                    [1] = "SetSpawnPoint"
-                };
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(v797));
-            end
-        end);
-    end
-end);
-local v89 = require(game.ReplicatedStorage.Util.CameraShaker);
-v89:Stop();
-local v90 = v16.Setting:AddToggle("ToggleBringMob", {
-    Title = "Gom Quái",
-    Description = "",
-    Default = true
-});
-v90:OnChanged(function(v277)
-    _G.BringMob = v277;
-end);
-v17.ToggleBringMob:SetValue(true);
-spawn(function()
-    while wait() do
-        pcall(function()
-            for v733, v734 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                if (_G.BringMob and bringmob) then
-                    if ((v734.Name == MonFarm) and v734:FindFirstChild("Humanoid") and (v734.Humanoid.Health > 0)) then
-                        if (v734.Name == "Factory Staff") then
-                            if ((v734.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 1000000000) then
-                                v734.Head.CanCollide = false;
-                                v734.HumanoidRootPart.CanCollide = false;
-                                v734.HumanoidRootPart.Size = Vector3.new(60, 60, 60);
-                                v734.HumanoidRootPart.CFrame = FarmPos;
-                                if v734.Humanoid:FindFirstChild("Animator") then
-                                    v734.Humanoid.Animator:Destroy();
-                                end
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge);
-                            end
-                        elseif (v734.Name == MonFarm) then
-                            if ((v734.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 1000000000) then
-                                v734.HumanoidRootPart.CFrame = FarmPos;
-                                v734.HumanoidRootPart.Size = Vector3.new(60, 60, 60);
-                                v734.HumanoidRootPart.Transparency = 1;
-                                v734.Humanoid.JumpPower = 0;
-                                v734.Humanoid.WalkSpeed = 0;
-                                if v734.Humanoid:FindFirstChild("Animator") then
-                                    v734.Humanoid.Animator:Destroy();
-                                end
-                                v734.HumanoidRootPart.CanCollide = false;
-                                v734.Head.CanCollide = false;
-                                v734.Humanoid:ChangeState(11);
-                                v734.Humanoid:ChangeState(14);
-                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge);
-                            end
-                        end
-                    end
-                end
-            end
-        end);
-    end
-end);
 local v91 = v16.Setting:AddToggle("ToggleRemoveNotify", {
     Title = "Xóa Thông Báo",
     Description = "",
@@ -755,27 +677,6 @@ spawn(function()
         end);
     end
 end);
-v16.Teleport:AddButton({
-    Title = "Biến 1",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain");
-    end
-});
-v16.Teleport:AddButton({
-    Title = "Biến 2",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa");
-    end
-});
-v16.Teleport:AddButton({
-    Title = "Biển 3",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou");
-    end
-});
 v14:Notify({
     Title = "Haha Gamer",
     Content = "Tải Xong",
