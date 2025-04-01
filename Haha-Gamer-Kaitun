@@ -733,6 +733,28 @@ spawn(function()
         end);
     end
 end);
+local v118 = v16.Teleport:AddSection("Thế Giới");
+v16.Teleport:AddButton({
+    Title = "Biến 1",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain");
+    end
+});
+v16.Teleport:AddButton({
+    Title = "Biến 2",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa");
+    end
+});
+v16.Teleport:AddButton({
+    Title = "Biển 3",
+    Description = "",
+    Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou");
+    end
+});
 v14:Notify({
     Title = "Haha Gamer",
     Content = "Tải Xong",
