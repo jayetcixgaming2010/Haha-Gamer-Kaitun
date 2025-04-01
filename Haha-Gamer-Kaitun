@@ -340,9 +340,6 @@ local v16 = {
     Fruit = v15:AddTab({
         Title = "Trái"
     }),
-    Misc = v15:AddTab({
-        Title = "Khác"
-    })
 };
 local v17 = v14.Options;
 local v18 = game.PlaceId;
@@ -1168,103 +1165,6 @@ v16.Shop:AddButton({
         game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/InteractDragonQuest"):InvokeServer(unpack(v371));
     end
 });
-v16.Misc:AddButton({
-    Title = "Tham Gia Máy Chủ Lại",
-    Description = "",
-    Callback = function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer);
-    end
-});
-v16.Misc:AddButton({
-    Title = "Đổi Máy Chủ",
-    Description = "",
-    Callback = function()
-        Hop();
-    end
-});
-function Hop()
-    local v372 = game.PlaceId;
-    local v373 = {};
-    local v374 = "";
-    local v375 = os.date("!*t").hour;
-    local v376 = false;
-    function TPReturner()
-        local v556;
-        if (v374 == "") then
-            v556 = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. v372 .. "/servers/Public?sortOrder=Asc&limit=100"));
-        else
-            v556 = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. v372 .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" .. v374));
-        end
-        local v557 = "";
-        if (v556.nextPageCursor and (v556.nextPageCursor ~= "null") and (v556.nextPageCursor ~= nil)) then
-            v374 = v556.nextPageCursor;
-        end
-        local v558 = 0;
-        for v651, v652 in pairs(v556.data) do
-            local v653 = true;
-            v557 = tostring(v652.id);
-            if (tonumber(v652.maxPlayers) > tonumber(v652.playing)) then
-                for v872, v873 in pairs(v373) do
-                    if (v558 ~= 0) then
-                        if (v557 == tostring(v873)) then
-                            v653 = false;
-                        end
-                    elseif (tonumber(v375) ~= tonumber(v873)) then
-                        local v1472 = pcall(function()
-                            v373 = {};
-                            table.insert(v373, v375);
-                        end);
-                    end
-                    v558 = v558 + 1 ;
-                end
-                if (v653 == true) then
-                    table.insert(v373, v557);
-                    wait();
-                    pcall(function()
-                        wait();
-                        game:GetService("TeleportService"):TeleportToPlaceInstance(v372, v557, game.Players.LocalPlayer);
-                    end);
-                    wait();
-                end
-            end
-        end
-    end
-    function v118()
-        while wait() do
-            pcall(function()
-                TPReturner();
-                if (v374 ~= "") then
-                    TPReturner();
-                end
-            end);
-        end
-    end
-    v118();
-end
-local v153 = v16.Misc:AddToggle("ToggleAntiBand", {
-    Title = "Chống Band",
-    Description = "",
-    Default = true
-});
-v153:OnChanged(function(v384)
-    _G.AntiBand = v384;
-end);
-local v154 = {
-    17884881,
-    120173604,
-    912348
-};
-spawn(function()
-    while wait() do
-        if _G.AntiBand then
-            for v809, v810 in pairs(game:GetService("Players"):GetPlayers()) do
-                if table.find(v154, v810.UserId) then
-                    Hop();
-                end
-            end
-        end
-    end
-end);
 v14:Notify({
     Title = "Haha Gamer",
     Content = "Tải Xong",
