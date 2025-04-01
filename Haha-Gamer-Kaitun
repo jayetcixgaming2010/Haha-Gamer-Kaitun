@@ -528,6 +528,52 @@ v92:OnChanged(function(v279)
         game:GetService("RunService"):Set3dRenderingEnabled(true);
     end
 end);
+v17.ToggleWhite:SetValue(false);
+local v93 = v16.Setting:AddSection("Kĩ Năng Thông Thạo");
+local v94 = v16.Setting:AddToggle("ToggleZ", {
+    Title = "Kĩ Năng Z",
+    Description = "",
+    Default = true
+});
+v94:OnChanged(function(v280)
+    SkillZ = v280;
+end);
+v17.ToggleZ:SetValue(true);
+local v95 = v16.Setting:AddToggle("ToggleX", {
+    Title = "Kĩ Năng X",
+    Description = "",
+    Default = true
+});
+v95:OnChanged(function(v281)
+    SkillX = v281;
+end);
+v17.ToggleX:SetValue(true);
+local v96 = v16.Setting:AddToggle("ToggleC", {
+    Title = "Kĩ Năng C",
+    Description = "",
+    Default = true
+});
+v96:OnChanged(function(v282)
+    SkillC = v282;
+end);
+v17.ToggleC:SetValue(true);
+local v97 = v16.Setting:AddToggle("ToggleV", {
+    Title = "Kĩ Năng V",
+    Description = "",
+    Default = true
+});
+v97:OnChanged(function(v283)
+    SkillV = v283;
+end);
+v17.ToggleV:SetValue(true);
+local v98 = v16.Setting:AddToggle("ToggleF", {
+    Title = "Kĩ Năng F",
+    Description = "",
+    Default = false
+});
+v98:OnChanged(function(v284)
+    SkillF = v284;
+end);
 v17.ToggleF:SetValue(true);
 local v99 = v16.Status:AddParagraph({
     Title = "Thông Tin",
@@ -621,6 +667,16 @@ local v106 = v16.Status:AddToggle("MyToggle", {
     Title = "Spam Tham Gia Job ID",
     Default = false
 });
+v106:OnChanged(function(v302)
+    _G.Join = v302;
+end);
+spawn(function()
+    while wait() do
+        if _G.Join then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer);
+        end
+    end
+end);
 v106:OnChanged(function(v302)
     _G.Join = v302;
 end);
